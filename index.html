@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Buco | Modern Forest Retreat in Cariló</title>
+    <meta name="description" content="Ultra-modern forest retreat for long stays and remote work in Cariló, Argentina.">
+    <style>
+        /* Simple reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        nav a:hover {
+            color: #4a6cf7;
+        }
+        
+        /* Hero section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.9);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 32rem;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #4a6cf7;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background-color: rgba(74, 108, 247, 0.9);
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+        
+        section.bg-gray {
+            background-color: #f9fafb;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Introduction */
+        .intro {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .intro {
+                flex-direction: row;
+            }
+            
+            .intro-title {
+                width: 33.333%;
+            }
+            
+            .intro-content {
+                width: 66.666%;
+            }
+        }
+        
+        /* Grid layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .grid-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Cards */
+        .card {
+            margin-bottom: 2rem;
+        }
+        
+        .card-image {
+            position: relative;
+            height: 16rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Lists */
+        ul {
+            list-style: none;
+        }
+        
+        ul li {
+            margin-bottom: 0.25rem;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid #eee;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+        
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col {
+            width: 100%;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-col {
+                width: calc(25% - 1.5rem);
+            }
+        }
+        
+        .footer-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+        
+        footer a:hover {
+            color: #4a6cf7;
+        }
+        
+        .copyright {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #777;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        /* Responsive for iPhone 16 Pro */
+        @media (max-width: 430px) {
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Il Buco</a>
+            <nav>
+                <a href="#suites">Suites</a>
+                <a href="#features">Features</a>
+                <a href="#location">Location</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" alt="Il Buco Forest View" class="hero-bg">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Il Buco</h1>
+                    <h2>Modern forest retreat for long stays and remote work</h2>
+                    <a href="#suites" class="btn">Explore Suites</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section>
+            <div class="container">
+                <div class="intro">
+                    <div class="intro-title">
+                        <h2>A modern retreat in Cariló's pine forest</h2>
+                    </div>
+                    <div class="intro-content">
+                        <p style="margin-bottom: 1rem;">
+                            Just 100m from the beach, immersed in Cariló's pine forest, Il Buco offers an exceptional environment for extended stays and remote work.
+                        </p>
+                        <p>
+                            Designed in 2025 by a foreign architect with suspended concrete volumes and excellent thermal and acoustic comfort, our spaces combine modern minimalism with natural surroundings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suites -->
+        <section id="suites" class="bg-gray">
+            <div class="container">
+                <h2>Suites</h2>
+                
+                <div class="grid grid-4">
+                    <!-- Suite 1 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Garden Suite">
+                        </div>
+                        <h3>Garden Suite</h3>
+                        <p style="margin-bottom: 0.5rem;">Ground Floor with Panoramic Corner Window</p>
+                        <ul>
+                            <li>• Barrier-free entry (no steps)</li>
+                            <li>• Floor-to-ceiling corner window</li>
+                            <li>• Dedicated entry hall</li>
+                        </ul>
+                    </div>
+
+                    <!-- Suite 2 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Terrace Suite">
+                        </div>
+                        <h3>Private Terrace Suite</h3>
+                        <p style="margin-bottom: 0.5rem;">With Live Plants & Open Floor Plan</p>
+                        <ul>
+                            <li>• 40 m² shaded terrace</li>
+                            <li>• Live plants in built-in planters</li>
+                            <li>• Junior-suite open layout</li>
+                        </ul>
+                    </div>
+
+                    <!-- Suite 3 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Forest-View Suite">
+                        </div>
+                        <h3>Forest-View Suite</h3>
+                        <p style="margin-bottom: 0.5rem;">With Separate Bedroom</p>
+                        <ul>
+                            <li>• Panoramic corner window</li>
+                            <li>• Separate bedroom & living area</li>
+                            <li>• Ideal for staggered schedules</li>
+                        </ul>
+                    </div>
+
+                    <!-- Suite 4 -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Penthouse Suite">
+                        </div>
+                        <h3>Penthouse</h3>
+                        <p style="margin-bottom: 0.5rem;">With Access to Large Sunny Terrace</p>
+                        <ul>
+                            <li>• Top-floor suite</li>
+                            <li>• Direct access to sun-lit terrace</li>
+                            <li>• Option for exclusive terrace use</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features">
+            <div class="container">
+                <h2>Features</h2>
+
+                <div class="grid grid-4">
+                    <div class="card">
+                        <h3>Modern Design</h3>
+                        <p>
+                            2025 build featuring suspended concrete volumes and black PVC double windows for excellent thermal and acoustic comfort.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Remote Work Ready</h3>
+                        <p>
+                            500 Mbps fiber internet, mesh Wi-Fi throughout the property, and ergonomic office chairs for long stays.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Comfort & Quality</h3>
+                        <p>
+                            Underfloor heating, air-conditioning, high-density foam mattresses, and 5-star hotel bedding. Full kitchen with quality cookware.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Beach & Forest</h3>
+                        <p>
+                            Just 100 meters from the beach and immersed in Cariló's beautiful pine forest. Enjoy nature and modern luxury.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location -->
+        <section id="location" class="bg-gray">
+            <div class="container">
+                <div class="grid grid-2">
+                    <div>
+                        <h2>Location</h2>
+                        <p style="margin-bottom: 1.5rem;">
+                            Il Buco is located in the heart of Cariló, just 100 meters from the beach and immersed in the natural pine forest.
+                        </p>
+                        <div style="margin-bottom: 1.5rem;">
+                            <h3>Nearby Activities</h3>
+                            <ul>
+                                <li>• Cariló Tennis Club – Clay courts and padel</li>
+                                <li>• Centro Integral de Entrenamiento – Full gym</li>
+                                <li>• Cabalgatas Dos Montes – Horse riding</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Dining Options</h3>
+                            <ul>
+                                <li>• La Cabrera – Premium parrilla</li>
+                                <li>• Il Gatto Nero – Napoletan pizza</li>
+                                <li>• Panettone – Coffee and baked goods</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="height: 400px;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12614.767791517401!2d-57.13249867022462!3d-37.16458239987075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d9a72b1d0d69%3A0x8e2c5e44a87d7c8d!2zQ2FyaWzDsywgQnVlbm9zIEFpcmVzIFByb3ZpbmNlLCBBcmdlbnRpbmE!5e0!3m2!1sen!2sus!4v1621436321000!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="grid grid-2">
+                    <div>
+                        <p style="margin-bottom: 1rem;">
+                            Interested in booking a stay at Il Buco? Contact us for availability and rates.
+                        </p>
+                        <p style="margin-bottom: 0.5rem;">
+                            <strong>Phone:</strong> <a href="tel:+5491121275492">+54 11 2127 5492</a>
+                        </p>
+                        <p>
+                            <strong>Email:</strong> <a href="mailto:hi@ilbuco.com.ar">hi@ilbuco.com.ar</a>
+                        </p>
+                    </div>
+                    <div>
+                        <form>
+                            <div style="margin-bottom: 1rem;">
+                                <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
+                                <input type="text" id="name" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd;">
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
+                                <input type="email" id="email" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd;">
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
+                                <textarea id="message" rows="4" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd;"></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-title" style="font-size: 1.25rem;">Il Buco</div>
+                    <p>Modern forest retreat in Cariló</p>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-title">Contact</div>
+                    <a href="tel:+5491121275492">+54 11 2127 5492</a>
+                    <a href="mailto:hi@ilbuco.com.ar">hi@ilbuco.com.ar</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-title">Links</div>
+                    <a href="#suites">Suites</a>
+                    <a href="#features">Features</a>
+                    <a href="#location">Location</a>
+                </div>
+                <div class="footer-col">
+                    <div class="footer-title">Legal</div>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Il Buco. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

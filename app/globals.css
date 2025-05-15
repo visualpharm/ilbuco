@@ -6,11 +6,6 @@
   --foreground: #000000;
   --background: #ffffff;
   --accent: #dc2626;
-  --grid-gap: 2rem;
-  --section-spacing: 8rem;
-  --container-width: 1440px;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,18 +25,16 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
 @layer components {
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--grid-gap);
-    max-width: var(--container-width);
+  .container {
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
   
   .heading-xl {
