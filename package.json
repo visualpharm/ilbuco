@@ -1,12 +1,12 @@
 {
   "name": "ilbuco",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "serve": "npx serve out -l 3000"
-  },
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "serve": "npx serve out -l 3000"
+},
   "dependencies": {
     "next": "^14.1.0",
     "react": "^18.2.0",
