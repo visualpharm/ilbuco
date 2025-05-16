@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Il Buco – Cariló</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gutter: 24px;
+      --columns: 12;
+      --col-width: calc((100% - (var(--gutter) * (var(--columns) - 1))) / var(--columns));
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: var(--gutter);
+      background: #fff;
+      color: #111;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      gap: var(--gutter);
+    }
+    .col-6 { grid-column: span 6; }
+    .col-12 { grid-column: span 12; }
+    header {
+      grid-column: span 12;
+      padding-bottom: var(--gutter);
+      border-bottom: 1px solid #ccc;
+      margin-bottom: var(--gutter);
+    }
+    h1 { font-size: 2rem; font-weight: 600; margin-bottom: 0.2em; }
+    h2 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5em; }
+    ul { padding-left: 1em; margin: 0.5em 0; }
+    ul li { margin-bottom: 0.5em; }
+    a { color: #0066cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; border-radius: 6px; margin: 12px 0; }
+    nav {
+      grid-column: span 12;
+      margin-bottom: 1.5rem;
+    }
+    nav a {
+      margin-right: 20px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rooms.html">Rooms</a>
+      <a href="location.html">Location</a>
+      <a href="activities.html">Things to Do</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <header>
+      <h1>Il Buco – Ultra-modern forest retreat for long stays and remote work</h1>
+      <p>Located 100 m from the beach in Cariló’s pine forest. Designed in 2025 by a foreign architect using suspended concrete volumes and high-performance walls. Equipped for long-term living with fast fiber, climate control, and private kitchens. Contact: +54 11 2127 5492 / <a href="mailto:hi@ilbuco.com.ar">hi@ilbuco.com.ar</a></p>
+    </header>
+
+    <section class="col-12">
+      <h2>Suites</h2>
+      <h3>Garden Suite with Panoramic Corner Window</h3>
+      <ul>
+        <li>Barrier-free entry, suitable for reduced mobility</li>
+        <li>Corner window facing garden, dedicated entry hall</li>
+        <li>Window-side dining/work table, futon for extra bed (fee)</li>
+        <li><img src="i/paraiso/paraiso_bedroom_with_window.jpeg" alt="Garden Suite" /></li>
+      </ul>
+
+      <h3>Suite with Large Private Terrace and Live Plants</h3>
+      <ul>
+        <li>40 m² shaded terrace with built-in planters</li>
+        <li>Open-plan layout: sleep, cook, work in one space</li>
+        <li><img src="i/terrazo/terrazo_forest_view.jpeg" alt="Terrace View" /></li>
+      </ul>
+
+      <h3>Forest-View Suite with Separate Bedroom</h3>
+      <ul>
+        <li>Corner window to pine forest</li>
+        <li>Separate bedroom + living/work room</li>
+        <li><img src="i/giardino/giardino_salon_view.jpeg" alt="Salon View" /></li>
+      </ul>
+
+      <h3>Penthouse with Large Sunny Terrace</h3>
+      <ul>
+        <li>Top-floor suite with direct terrace access</li>
+        <li>Optional exclusive-use terrace (extra fee)</li>
+        <li><img src="i/exterior/terrace_path_forest.jpeg" alt="Terrace Path" /></li>
+      </ul>
+    </section>
+
+    <section class="col-12">
+      <h2>Facilities</h2>
+      <ul>
+        <li>500 Mbps fiber internet, mesh Wi-Fi</li>
+        <li>Underfloor heating + air conditioning in each room</li>
+        <li>Kitchen: stove, oven, 300L fridge, microwave, cookware</li>
+        <li>Bathroom: walk-in shower + washer</li>
+        <li>Dense foam mattress with topper + 5* bedding</li>
+        <li>Ergonomic chair (free for stays > 1 month), twin beds on request</li>
+        <li>Shared terrace with parrilla & dining table for 6</li>
+      </ul>
+    </section>
+
+    <section class="col-12">
+      <h2>Policies</h2>
+      <ul>
+        <li>Pets welcome (cleaning fee + deposit)</li>
+        <li>No parties or unregistered visitors</li>
+        <li>Noise sensors + people-counting cameras in shared zones</li>
+      </ul>
+    </section>
+
+    <section class="col-12">
+      <h2>Nearby Activities & Services</h2>
+      <ul>
+        <li>Cariló Tennis Club – Clay courts, padel, football, small gym</li>
+        <li>Centro Integral de Entrenamiento (CIE) – Full indoor gym</li>
+        <li>Aire Libre, Libre – Free 24-hour outdoor calisthenics gym</li>
+        <li>Cabalgatas Dos Montes – Horse riding through dunes & forest</li>
+        <li>Motorrad Cariló – Quad riding and fatbike rental</li>
+      </ul>
+    </section>
+
+    <section class="col-12">
+      <h2>Dining & Coffee</h2>
+      <ul>
+        <li>La Cabrera – Parrilla with lots of extras</li>
+        <li>Don Benito (upscale), De Mi Campo (salads), La Parrillita (basic but good)</li>
+        <li>Il Gatto Nero – Award-winning Napoletan pizza (Valeria del Mar)</li>
+        <li>Panettone – Coffee, baked goods, avocado toast</li>
+        <li>Enri’s Cariló – Burgers. Impeke in Valeria also good</li>
+        <li>Masse – Always open</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
