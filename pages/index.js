@@ -99,17 +99,20 @@ export default function Home() {
           line-height: 1.2;
         }
         .gallery {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 1rem;
-          margin: 1rem 0;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          margin: 20px 0;
+          justify-content: flex-start;
         }
         .gallery-item {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
+          height: 192px;
+          width: auto;
+          max-width: 100%;
+          object-fit: contain;
           border-radius: 4px;
           transition: transform 0.3s ease;
+          cursor: pointer;
         }
         .gallery-item:hover {
           transform: scale(1.02);
