@@ -74,13 +74,38 @@
         </ul>
 
         <h2>Highlights</h2>
-        <ul>
-          <li>500 Mbps fiber-optic internet</li>
-          <li>Expansive suspended concrete structure providing exceptional acoustic comfort</li>
-          <li>Thick insulated walls and premium PVC windows ensuring superior thermal comfort</li>
-          <li>Air conditioning throughout and underfloor heating</li>
-          <li>Spacious open terraces with lush, irrigated plantings</li>
+        <ul id="highlights-list">
+          <li><strong>500 Mbit fiber-to-the-home</strong> with mesh Wi-Fi for seamless connectivity</li>
+          <li>4 bedrooms (2 persons each + futon for 2 more)</li>
+          <li>Radiant-floor heating and 8 cool-and-heat air conditioners</li>
+          <li>Large common living room, big common kitchen and large couches</li>
+          <li>Green roof with grill and big planted terrace</li>
+          <li class="more-features" style="display: none;"><strong>Full-size 300 L refrigerator</strong> in every kitchenette</li>
+          <li class="more-features" style="display: none;">4 mattresses with toppers and bedding up to <strong>5-star hotel standard</strong></li>
+          <li class="more-features" style="display: none;"><strong>Bathrooms:</strong> glass shower screens, handheld bidet sprayer, and a washing machine in each</li>
+          <li class="more-features" style="display: none;"><strong>Private water-treatment plant with softener</strong> – strong pressure, spot-free glass</li>
+          <li class="more-features" style="display: none;"><strong>Solid load-bearing concrete structure</strong> prevents vibrations and offers superior sound insulation</li>
+          <li class="more-features" style="display: none;"><strong>Full insulation:</strong> interior insulation and brick walls; black double-glazed PVC windows (~50% costlier than white)</li>
         </ul>
+        <button id="show-more-btn" class="button" style="margin-top: 0.5rem;">+5 more features</button>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const showMoreBtn = document.getElementById('show-more-btn');
+            const moreFeatures = document.querySelectorAll('.more-features');
+            let isExpanded = false;
+            
+            showMoreBtn.addEventListener('click', function() {
+              isExpanded = !isExpanded;
+              moreFeatures.forEach(item => {
+                item.style.display = isExpanded ? 'list-item' : 'none';
+              });
+              showMoreBtn.textContent = isExpanded ? '- Show less' : `+${moreFeatures.length} more features`;
+            });
+            
+            // Initialize button text
+            showMoreBtn.textContent = `+${moreFeatures.length} more features`;
+          });
+        </script>
       </p>
     </header>
 
