@@ -1,15 +1,11 @@
 services:
-  - type: web
+  - type: static
     name: ilbuco
-    runtime: static
-    buildCommand: echo "No build required"
-    staticPublishPath: ./public
-    pullRequestPreviewsEnabled: true # optional
+    publishPath: public
+    buildCommand: ""
+    staticPublishPath: public # Directory to publish
+    pullRequestPreviewsEnabled: true
     headers:
       - path: /*
         name: Cache-Control
         value: no-cache
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
