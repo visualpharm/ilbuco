@@ -77,6 +77,27 @@
       </ul>
     </section>
 
+    <section class="col-12">
+      <h2 style="margin-top:2em">Things to Do – Gallery</h2>
+      <div class="gallery" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <a href="i/thingstodo/File 24-04-2025, 10 29 15 PM.jpeg" data-pswp-width="1600" data-pswp-height="900" target="_blank">
+          <img src="i/thingstodo/File 24-04-2025, 10 29 15 PM.jpeg" alt="Things to do 1" style="height:160px;width:auto;object-fit:cover;" loading="lazy">
+        </a>
+        <a href="i/thingstodo/golf.jpeg" data-pswp-width="1600" data-pswp-height="900" target="_blank">
+          <img src="i/thingstodo/golf.jpeg" alt="Golf" style="height:160px;width:auto;object-fit:cover;" loading="lazy">
+        </a>
+      </div>
+      <script type="module">
+        import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: '.gallery',
+          children: 'a',
+          pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js')
+        });
+        lightbox.init();
+      </script>
+    </section>
+
     <footer class="col-12" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
       <p>Il Buco – Cariló | <a href="contact.html">Contact Us</a></p>
     </footer>

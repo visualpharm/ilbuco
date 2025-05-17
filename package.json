@@ -2,8 +2,8 @@
   "name": "ilbuco",
   "private": true,
   "scripts": {
-    "dev": "http-server public -p 3002 -o",
-    "serve": "http-server public -p 3002 -o"
+    "dev": "http-server public -p 3003 -o",
+    "serve": "http-server public -p 3003 -o"
   },
   "devDependencies": {
     "http-server": "^14.1.1"
