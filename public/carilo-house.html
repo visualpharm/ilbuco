@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <title>The House - Il Buco Cariló</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ios-fixes.css">
+  <script src="js/common.js"></script>
+  <style>
+    .section {
+      margin-bottom: 0.9375rem; /* 15px */
+    }
+    .section h2 {
+      margin-top: 0.3125rem; /* 5px - reduced from 1.5rem (24px) by 0.75rem (12px) */
+      margin-bottom: 0.75rem;
+    }
+    .highlight-box {
+      margin: 1.5rem 0;
+    }
+    .highlight-box ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .highlight-item {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+    .toggle-details {
+      background: none;
+      border: none;
+      color: #4a6fa5;
+      cursor: pointer;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .toggle-details:hover {
+      text-decoration: underline;
+    }
+    .hidden {
+      display: none;
+    }
+    ul, ol {
+      margin: 0.5rem 0 1rem;
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+    
+    .full-width-footer {
+      width: 100%;
+      background-color: #f8f9fa;
+      border-top: 1px solid #eaeaea;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: left;
+    }
+    
+    .footer-content p {
+      margin: 0;
+      color: #666;
+    }
+    
+    .footer-content a {
+      color: #4a6fa5;
+      text-decoration: none;
+    }
+    
+    .footer-content a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <nav id="navigation">
+      <!-- Navigation will be inserted by JavaScript -->
+    </nav>
+
+    <header class="col-12" style="margin-bottom: 0.5rem;">
+      <h1 style="margin-bottom: 0.5rem;">The House</h1>
+    </header>
+
+    <section class="section col-12">
+      <h2>Highlights</h2>
+      <div class="highlight-box">
+        <ul id="highlights-list">
+          <li class="highlight-item">– <strong>4 bedrooms</strong> with private bathrooms and kitchenettes</li>
+          <li class="highlight-item">– <strong>Radiant-floor heating</strong> and <strong>8 air-conditioners</strong> (cool + heat)</li>
+          <li class="highlight-item">– <strong>Green roof</strong> with grill and large planted terrace</li>
+          <li class="highlight-item">– <strong>Solid structure</strong> with superior <strong>sound insulation</strong></li>
+          <li class="highlight-item">– <strong>Water-treatment plant</strong> with softener</li>
+          <li class="more-features" style="display: none;">– <strong>500 Mbit Wi-Fi</strong> (fiber-to-home + mesh)</li>
+          <li class="more-features" style="display: none;">– <strong>4 bedrooms</strong> (2 people each + futon for 2 more)</li>
+          <li class="more-features" style="display: none;">– Large shared living room with <strong>one big couch</strong> and <strong>common kitchen</strong></li>
+          <li class="more-features" style="display: none;">– <strong>300 L refrigerators</strong> in every kitchenette</li>
+          <li class="more-features" style="display: none;">– <strong>5-star bedding</strong> on dense foam mattresses</li>
+          <li class="more-features" style="display: none;">– <strong>Bathrooms:</strong> glass shower screens, handheld bidet sprayers, washing machine in each</li>
+          <li class="more-features" style="display: none;">– <strong>Solid load-bearing concrete</strong> + full insulation; black double-glazed PVC windows (~50% costlier than white)</li>
+        </ul>
+        <button id="toggleDetails" class="toggle-details">+6 more features</button>
+      </div>
+    </section>
+
+    <section class="section col-12">
+      <h2>Layout & Rooms</h2>
+      <ul>
+        <li><strong>4 bedrooms</strong>
+          <ul>
+            <li>Private bathroom (glass screen, bidet sprayer, washing machine)</li>
+            <li>Kitchenette: <strong>300 L fridge</strong>, stove, oven, microwave, quality cookware</li>
+          </ul>
+        </li>
+        <li>Extra shared bathroom</li>
+      </ul>
+    </section>
+
+    <section class="section col-12">
+      <h2>Shared Areas</h2>
+      <ul>
+        <li>Large shared living room with <strong>one big couch</strong></li>
+        <li><strong>Common kitchen</strong></li>
+        <li><strong>Green roof</strong> with grill</li>
+      </ul>
+    </section>
+
+    <section class="section col-12">
+      <h2>Long-Stay Work Package (6 months +)</h2>
+      <ul>
+        <li><strong>Monthly discount</strong></li>
+        <li><strong>Ergonomic chair</strong></li>
+        <li>Optional computer monitor</li>
+        <li><em>Fixed monthly rent for 12 months + (not adjusted for high/low season)</em></li>
+      </ul>
+    </section>
+
+    <section class="section col-12">
+      <h2>Cleaning</h2>
+      <ul>
+        <li><strong>Weekly cleaning</strong> of common areas included</li>
+        <li>Extra in-room cleaning on request for long stays</li>
+      </ul>
+    </section>
+
+    <section class="section col-12">
+      <h2>House Rules</h2>
+      <ul>
+        <li><strong>No music</strong> audible outside your room</li>
+        <li><strong>No parties</strong> — <em>people-counting cameras in common areas</em></li>
+        <li>Leave common kitchen and grill <strong>clean</strong></li>
+        <li><strong>Pets</strong> allowed (hypo-allergenic fee + US $300 deposit)</li>
+        <li><strong>Check-in flexible:</strong> arrive early if free / smart-lock access</li>
+        <li><strong>Check-out flexible:</strong> stay late if no same-day check-in</li>
+        <li>Heating, A/C, internet, electricity, water included — <strong>switch off AC & lights when leaving</strong></li>
+      </ul>
+    </section>
+
+    <section class="section col-12">
+      <h2>Availability & Rates</h2>
+      <ul>
+        <li><strong>Open all year</strong></li>
+        <li><strong>High season:</strong> December – February</li>
+        <li><strong>Best rates:</strong> April – October <em>(my favorites: Sept – Nov)</em></li>
+        <li><em>12 months + stays enjoy fixed monthly rent</em></li>
+      </ul>
+    </section>
+
+    <section class="section col-12">
+      <h2>Bike Rental</h2>
+      <ul>
+        <li><strong>1 MTB</strong> (size L, Shimano Altus) on-site</li>
+        <li>Additional bikes, including fat bikes, <a href="https://www.guiadeplaya.com.ar/motorrad-carilo-alquiler-cuatriciclos.html" target="_blank" rel="noopener noreferrer">rentable in town</a></li>
+      </ul>
+    </section>
+
+  </div>
+  <footer class="full-width-footer">
+    <div class="footer-content">
+      <p>Il Buco – Cariló | <a href="contact.html">Contact Us</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButton = document.getElementById('toggleDetails');
+      const moreFeatures = document.querySelectorAll('.more-features');
+      
+      let isExpanded = false;
+      
+      toggleButton.addEventListener('click', function() {
+        isExpanded = !isExpanded;
+        
+        moreFeatures.forEach(item => {
+          item.style.display = isExpanded ? 'list-item' : 'none';
+        });
+        
+        const hiddenCount = document.querySelectorAll('.more-features').length;
+        toggleButton.textContent = isExpanded ? '- Show less' : `+${hiddenCount} more features`;
+      });
+      
+      // Initialize button text
+      const hiddenCount = document.querySelectorAll('.more-features').length;
+      toggleButton.textContent = `+${hiddenCount} more features`;
+    });
+  </script>
+</body>
+</html>

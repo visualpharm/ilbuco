@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Define menu structure with URLs and labels
     const menuItems = {
       'index.html': { selector: '.logo', text: 'IL BUCO', isLogo: true },
+      'carilo-house.html': { selector: '#house-link', text: 'The House' },
       'rooms.html': { selector: '#rooms-link', text: 'Rooms' },
       'location.html': { selector: '#location-link', text: 'Location' },
       'activities.html': { selector: '#activities-link', text: 'Things to Do' },
@@ -24,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Build menu items HTML
     let menuItemsHTML = '';
-    ['rooms.html', 'location.html', 'activities.html', 'contact.html'].forEach(page => {
+    ['carilo-house.html', 'rooms.html', 'location.html', 'activities.html', 'contact.html'].forEach(page => {
       const item = menuItems[page];
       const id = item.selector.replace('#', '');
       
