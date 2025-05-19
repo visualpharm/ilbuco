@@ -17,7 +17,7 @@
 
     <header>
       <h1>Our Location</h1>
-      <p>Located on Argentinian coast, 340 km from Buenos Aires.</p>
+      <p>Located on Argentinian coast, 360 km from Buenos Aires.</p>
       <div class="map-container" style="margin: 2em 0;">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3216.1234567890123!2d-56.9918!3d-37.1656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x959c1e5c5a8f9c5f%3A0x5e5a5e5a5e5a5e5a!2sParaiso%20324%2C%20B7167%20Caril%C3%B3%2C%20Buenos%20Aires%20Province%2C%20Argentina!5e0!3m2!1sen!2sus!4v1623456789012!5m2!1sen!2sus" 
@@ -43,32 +43,57 @@
           .map-container iframe {
             height: 400px !important;
           }
+          #bus-item-content-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+          }
+          #bus-text-block {
+            order: 1 !important;
+          }
+          #bus-tip-image-container {
+            float: none !important;
+            width: 100% !important;
+            margin: 0 0 1em 0 !important;
+            order: 2 !important;
+          }
         }
       </style>
     </header>
 
     <section class="col-12">
-      <h2>Getting Here</h2>
+      <h2>🛣️ Getting Here</h2>
       <ul>
-        <li>340 km from Buenos Aires (4 hour drive)</li>
-        <li><strong>Bus:</strong> Around 10 buses daily from Buenos Aires, <a href="https://www.plataforma10.com/" rel="noopener noreferrer">good aggregator</a>. Book a bus to Pinamar. From there, it's a 15 min taxi ride.</li>
+        <li><strong>Car:</strong> 360 km from Buenos Aires (4 hour drive)</li>
+        <li style="margin-bottom: 1em;">
+          <div>
+            <div id="bus-item-content-wrapper">
+              <div id="bus-tip-image-container" style="float: right; width: 220px; margin: 0 0 1em 1.5em; background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <a href="i/cama_ejecutivo.jpg" data-pswp-width="1200" data-pswp-height="800" data-cropped="true">
+                  <img src="i/cama_ejecutivo.jpg" alt="Cama Ejecutivo bus seat" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+                </a>
+                <div style="padding: 0.8em; padding-top: 0; font-size: 0.85em; line-height: 1.4; color: #333;">
+                  <strong>Bus tip:</strong> Choose "Cama Ejecutivo" for lie-flat business class
+                </div>
+              </div>
+              <div id="bus-text-block">
+                <div style="display: flex; align-items: center; gap: 0.5em; margin-bottom: 0.2em;">
+                  <strong>Bus:</strong>
+                  <span style="background: #e8f5e9; color: #2e7d32; padding: 0.2em 0.5em; border-radius: 12px; font-size: 0.8em; font-weight: 600;">Recommended without car</span>
+                </div>
+                <p style="margin: 0 0 1em 0;">Around 10 buses daily from Buenos Aires (<a href="https://www.plataforma10.com/" rel="noopener noreferrer">good aggregator</a>). Book a bus to Pinamar. From there, it's a 15 min taxi ride.</p>
+              </div>
+            </div>
+          </div>
+        </li>
         <li><strong>Private or shared transfer</strong> by car or minibus can be booked via <a href="https://indrive.com/" target="_blank" rel="noopener noreferrer">InDrive</a> or <a href="https://listado.mercadolibre.com.ar/pasajes-en-combis-para-carilo" target="_blank" rel="noopener noreferrer">MercadoLibre</a>.</li>
         <li><strong>Train:</strong> There is a daily train from Buenos Aires to Pinamar, but tickets sell out minutes after release – not a practical option.</li>
         <li><strong>Flights:</strong> There are no regular flights since 2023.</li>
       </ul>
-      <h2>Getting around</h2>
+      <h2>🚕 Getting around</h2>
       <ul>
         <li>Uber, Didi, and local taxi with an app (<a href="https://apps.apple.com/ar/app/taxis-pinamar/id6738529955" target="_blank" rel="noopener noreferrer">iPhone</a> / <a href="https://play.google.com/store/apps/details?id=com.nrs.gael_clientes.taxispinamar&hl=es_AR" target="_blank" rel="noopener noreferrer">Android</a>).<br></li>
         <li>Food and courier app: PedidosYa</li>
       </ul>
-    </section>
-
-    <section class="col-12">
-      <h2>About Cariló</h2>
-      <p>Cariló is a coastal town in Buenos Aires Province, Argentina, known for its pine forests, sand dunes, and upscale villas. Founded in the early 20th century by Héctor Manuel Guerrero, the town has sandy, unpaved roads and houses built among mature trees.</p>
-      <p>
-        Learn more on <a href="https://en.wikipedia.org/wiki/Caril%C3%B3" target="_blank" rel="noopener noreferrer">Wikipedia</a> (co-written by Il Buco's founder).
-      </p>
     </section>
 
     <section class="col-12" style="margin-top: 1em; margin-bottom: 2em;">
@@ -115,14 +140,14 @@
 
 
     <section class="col-12">
-      <h2>Nearby Activities & Services</h2>
+      <h2>🏖️ Nearby Activities & Services</h2>
       <p>All destinations are within a 20–30 min walk or a short drive from Il Buco.</p>
       <ul>
         <li><strong><a href="https://www.instagram.com/carilotennis.club/" target="_blank" rel="noopener noreferrer">Cariló Tennis Club</a></strong> – Clay courts and padel</li>
         <li><strong><a href="https://www.instagram.com/somos_cie/" target="_blank" rel="noopener noreferrer">Gym</a></strong> – Full-service indoor facility with day, week & month passes</li>
         <li><strong>Aire Libre, Libre</strong> – Free 24 h outdoor calisthenics gym with bars & parallettes</li>
         <li><strong><a href="https://www.instagram.com/cabalgatasdosmontes/" target="_blank" rel="noopener noreferrer">Cabalgatas Dos Montes</a></strong> – Horse riding through dunes and forest</li>
-        <li><strong><a href="https://www.instagram.com/motorrad_carilo/" target="_blank" rel="noopener noreferrer">Motorrad Cariló</a></strong> – Quad and fat-bike rental</li>
+        <li><strong><a href="https://www.guiadeplaya.com.ar/motorrad-carilo-alquiler-cuatriciclos.html" target="_blank" rel="noopener noreferrer">Motorrad Cariló</a></strong> – Quad and fat-bike rental</li>
       </ul>
     </section>
 
@@ -139,6 +164,14 @@
         <li><strong><a href="https://www.instagram.com/enris.ar/" target="_blank" rel="noopener noreferrer">Enri's</a></strong> – Best burgers (see also <a href="https://www.instagram.com/impekebar/" target="_blank" rel="noopener noreferrer">Impeke</a> in Valeria del Mar)</li>
         <li><strong><a href="https://www.instagram.com/masse.carilo/" target="_blank" rel="noopener noreferrer">Masse</a></strong> – French café, reliable, open all day</li>
       </ul>
+    </section>
+
+    <section class="col-12">
+      <h2>🌲 About Cariló</h2>
+      <p>Cariló is a coastal town in Buenos Aires Province, Argentina, known for its pine forests, sand dunes, and upscale villas. Founded in the early 20th century by Héctor Manuel Guerrero, the town has sandy, unpaved roads and houses built among mature trees.</p>
+      <p>
+        Learn more on <a href="https://en.wikipedia.org/wiki/Caril%C3%B3" target="_blank" rel="noopener noreferrer">Wikipedia</a> (co-written by Il Buco's founder).
+      </p>
     </section>
 
     <footer class="col-12" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
