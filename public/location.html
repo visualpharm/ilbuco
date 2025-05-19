@@ -7,6 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.css">
+  <!-- PhotoSwipe Dynamic Caption plugin CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe-dynamic-caption-plugin@1.2.7/photoswipe-dynamic-caption-plugin.css">
   <script src="js/common.js"></script>
 </head>
 <body>
@@ -57,6 +60,47 @@
             order: 2 !important;
           }
         }
+        
+        /* Bus gallery styles */
+        .bus-gallery a {
+          display: block;
+          position: relative;
+          transition: transform 0.3s ease;
+        }
+        
+        .bus-gallery a::after {
+          content: '🔍';
+          position: absolute;
+          bottom: 8px;
+          right: 8px;
+          background: rgba(255, 255, 255, 0.8);
+          border-radius: 50%;
+          width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 14px;
+          opacity: 0.8;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .bus-gallery a:hover {
+          transform: scale(1.02);
+        }
+        
+        .bus-gallery a:hover::after {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+        
+        .bus-gallery img {
+          transition: filter 0.3s ease;
+        }
+        
+        .bus-gallery a:hover img {
+          filter: brightness(1.05);
+        }
       </style>
     </header>
 
@@ -68,9 +112,11 @@
           <div>
             <div id="bus-item-content-wrapper">
               <div id="bus-tip-image-container" style="float: right; width: 220px; margin: 0 0 1em 1.5em; background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <a href="i/cama_ejecutivo.jpg" data-pswp-width="1200" data-pswp-height="800" data-cropped="true">
-                  <img src="i/cama_ejecutivo.jpg" alt="Cama Ejecutivo bus seat" style="width: 100%; height: 180px; object-fit: cover; display: block;">
-                </a>
+                <div class="bus-gallery">
+                  <a href="i/cama_ejecutivo.jpg" data-pswp-width="1200" data-pswp-height="800" class="bus-gallery-item" title="Cama Ejecutivo - Business class bus seat with lie-flat capability">
+                    <img src="i/cama_ejecutivo.jpg" alt="Cama Ejecutivo bus seat" style="width: 100%; height: 180px; object-fit: cover; display: block; cursor: zoom-in;">
+                  </a>
+                </div>
                 <div style="padding: 0.8em; padding-top: 0; font-size: 0.85em; line-height: 1.4; color: #333;">
                   <strong>Bus tip:</strong> Choose "Cama Ejecutivo" for lie-flat business class
                 </div>
@@ -97,7 +143,7 @@
     </section>
 
     <section class="col-12" style="margin-top: 1em; margin-bottom: 2em;">
-      <div class="gallery">
+      <div class="gallery main-gallery">
         <a href="i/walkaround/File 24-04-2025, 10 29 15 PM (1).jpeg" data-pswp-width="1600" data-pswp-height="900">
           <img src="i/walkaround/File 24-04-2025, 10 29 15 PM (1).jpeg" alt="Walkaround 1" loading="lazy">
         </a>
@@ -128,12 +174,146 @@
       </div>
       <script type="module">
         import PhotoSwipeLightbox from 'https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js';
-        const lightbox = new PhotoSwipeLightbox({
-          gallery: '.gallery',
-          children: 'a',
-          pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js')
+        import PhotoSwipeDynamicCaption from 'https://cdn.jsdelivr.net/npm/photoswipe-dynamic-caption-plugin@1.2.7/photoswipe-dynamic-caption-plugin.esm.js';
+        
+        // Function to create thumbnails for a gallery
+        const initGalleryWithThumbnails = (gallerySelector, options = {}) => {
+          // Store references to all gallery items with their original elements
+          const galleryElement = document.querySelector(gallerySelector);
+          const galleryItems = Array.from(galleryElement.querySelectorAll('a'));
+          
+          const lightbox = new PhotoSwipeLightbox({
+            gallery: gallerySelector,
+            children: 'a',
+            pswpModule: () => import('https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/photoswipe.esm.min.js'),
+            // Add thumbnail strip at the bottom
+            thumbs: {
+              autoStart: true,
+              spacing: 10
+            },
+            // Store original elements in dataSource
+            dataSource: galleryItems.map(item => ({
+              src: item.href,
+              width: parseInt(item.dataset.pswpWidth) || 1200,
+              height: parseInt(item.dataset.pswpHeight) || 800,
+              element: item
+            })),
+            ...options
+          });
+          
+          // Initialize Dynamic Caption plugin
+          const captionPlugin = new PhotoSwipeDynamicCaption(lightbox, {
+            captionContent: (slide) => {
+              return slide.data.element.getAttribute('title') || '';
+            },
+            type: 'below'
+          });
+          
+          // Add thumbnails when PhotoSwipe is opened
+          lightbox.on('uiRegister', function() {
+            lightbox.pswp.ui.registerElement({
+              name: 'thumbs',
+              className: 'pswp__thumbnails',
+              appendTo: 'wrapper',
+              onInit: (el, pswp) => {
+                // Create thumbnail container
+                const thumbsContainer = document.createElement('div');
+                thumbsContainer.className = 'pswp__thumbnails-container';
+                el.appendChild(thumbsContainer);
+                
+                // Add thumbnails for each slide
+                pswp.on('change', () => {
+                  // Clear existing thumbnails
+                  thumbsContainer.innerHTML = '';
+                  
+                  // Create thumbnails for all slides
+                  pswp.options.dataSource.items.forEach((item, index) => {
+                    const thumbImg = document.createElement('img');
+                    // Get the thumbnail source from the original element
+                    const imgElement = item.element ? item.element.querySelector('img') : null;
+                    if (imgElement && imgElement.src) {
+                      thumbImg.src = imgElement.src;
+                    } else if (item.thumb) {
+                      thumbImg.src = item.thumb;
+                    } else {
+                      // Fallback to main image if no thumbnail found
+                      thumbImg.src = item.src || '';
+                    }
+                    thumbImg.style.width = '60px';
+                    thumbImg.style.height = '40px';
+                    thumbImg.style.objectFit = 'cover';
+                    thumbImg.style.margin = '0 5px';
+                    thumbImg.style.opacity = index === pswp.currIndex ? '1' : '0.6';
+                    thumbImg.style.border = index === pswp.currIndex ? '2px solid white' : '2px solid transparent';
+                    thumbImg.style.cursor = 'pointer';
+                    thumbImg.style.transition = 'opacity 0.3s, border 0.3s';
+                    
+                    thumbImg.onclick = () => {
+                      pswp.goTo(index);
+                    };
+                    
+                    thumbsContainer.appendChild(thumbImg);
+                  });
+                });
+              }
+            });
+          });
+          
+          // Add custom CSS for thumbnails
+          const style = document.createElement('style');
+          style.textContent = `
+            .pswp__thumbnails {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              height: 60px;
+              text-align: center;
+              background: rgba(0,0,0,0.5);
+              z-index: 1;
+              padding: 10px 0;
+            }
+            .pswp__thumbnails-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100%;
+              overflow-x: auto;
+              scrollbar-width: thin;
+              scrollbar-color: rgba(255,255,255,0.5) rgba(0,0,0,0);
+            }
+            .pswp__thumbnails-container::-webkit-scrollbar {
+              height: 5px;
+            }
+            .pswp__thumbnails-container::-webkit-scrollbar-track {
+              background: rgba(0,0,0,0);
+            }
+            .pswp__thumbnails-container::-webkit-scrollbar-thumb {
+              background-color: rgba(255,255,255,0.5);
+              border-radius: 10px;
+            }
+            .pswp__caption {
+              margin-bottom: 60px;
+            }
+          `;
+          document.head.appendChild(style);
+          
+          lightbox.init();
+          return lightbox;
+        };
+        
+        // Initialize main gallery with thumbnails
+        const mainLightbox = initGalleryWithThumbnails('.main-gallery');
+        
+        // Initialize bus gallery with thumbnails and additional options
+        const busLightbox = initGalleryWithThumbnails('.bus-gallery', {
+          showHideAnimationType: 'zoom',
+          zoom: true,
+          wheelToZoom: true,
+          initialZoomLevel: 'fit',
+          secondaryZoomLevel: 2,
+          maxZoomLevel: 4,
         });
-        lightbox.init();
       </script>
     </section>
 
@@ -177,6 +357,37 @@
     <footer class="col-12" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
       <p>Il Buco – Cariló | <a href="contact.html">Contact Us</a></p>
     </footer>
+  </div>
+  
+  <!-- PhotoSwipe template -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+      <div class="pswp__ui pswp__ui--hidden">
+        <div class="pswp__top-bar">
+          <div class="pswp__counter"></div>
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
