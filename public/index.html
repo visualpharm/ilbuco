@@ -11,27 +11,35 @@
   <script src="js/common.js"></script>
   
   <style>
-    .gallery {
+    .frontpage-gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      margin-top: 32px;
+      margin: 32px 0 16px 0; /* Explicitly set top, right, bottom, left margins */
     }
-    .gallery img {
+    .frontpage-gallery img { /* Specific to frontpage gallery */
+      display: block; /* Ensure images behave as block elements */
       width: 100%;
       height: auto;
       border-radius: 8px;
       object-fit: cover;
       box-shadow: 0 2px 8px rgba(0,0,0,0.07);
     }
+    .frontpage-gallery a { /* Specific to frontpage gallery */
+      display: block;
+    }
     @media (max-width: 1024px) {
-      .gallery {
+      .frontpage-gallery {
         grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 600px) {
-      .gallery {
+      .frontpage-gallery {
+        display: grid !important; /* Force display */
+        visibility: visible !important; /* Force visibility */
         grid-template-columns: 1fr;
+        min-height: 200px; /* Debugging: Force height */
+        border: 5px solid green; /* Debugging: Check if gallery container is visible (changed color for new test) */
       }
     }
     .footer {

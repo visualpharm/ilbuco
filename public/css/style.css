@@ -43,7 +43,6 @@ a:hover { text-decoration: underline; }
 
 img { 
   max-width: 100%; 
-  width: 600px; /* Setting max width to 600px as requested */
   height: auto;
   border-radius: 6px; 
   margin: 12px 0; 
@@ -108,9 +107,6 @@ nav a, nav span {
     gap: 12px;
   }
   
-  .col-6, .col-12 {
-    grid-column: 1 / -1;
-  }
   
   h1 {
     font-size: 1.75rem;
